@@ -53,6 +53,3 @@ animate();
 button.addEventListener('click', function() {
   animate();
 });
-
-
-
