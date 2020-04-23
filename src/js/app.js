@@ -2,31 +2,15 @@ var title = document.querySelector('.title');
 var courseFeatureElements = document.querySelectorAll('.course-feature');
 var button = document.querySelector('button');
 
+navigator.serviceWorker.register('/sw.js');
 
 var deferredPrompt;
-
-if (!window.Promise) {
-  window.Promise = Promise;
-}
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .register('/sw.js')
-    .then(function () {
-      console.log('Service worker registered!');
-    })
-    .catch(function(err) {
-      console.log(err);
-    });
-}
-
-self.addEventListener('beforeinstallprompt', function(event) {
+window.addEventListener('beforeinstallprompt', function(event) {
   console.log('beforeinstallprompt fired');
   event.preventDefault();
   deferredPrompt = event;
   return false;
 });
-
 
 function animate() {
   title.classList.remove('animate-in');
