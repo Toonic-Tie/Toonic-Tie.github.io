@@ -1,11 +1,3 @@
-var deferredPrompt;
-self.addEventListener('beforeinstallprompt', function(event) {
-  console.log('beforeinstallprompt fired');
-  event.preventDefault();
-  deferredPrompt = event;
-  return false;
-});
-
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('first-app')
