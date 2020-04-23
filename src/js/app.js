@@ -66,10 +66,14 @@ function animate() {
   setTimeout(function () {
     courseFeatureElements[6].classList.add('animate-in');
   }, 12000);
+  
+  setTimeout(function () {
+    courseFeatureElements[7].classList.add('animate-in');
+  }, 13500);
 
   setTimeout(function () {
     button.classList.add('animate-in');
-  }, 13500);
+  }, 15000);
 }
 
 animate();
