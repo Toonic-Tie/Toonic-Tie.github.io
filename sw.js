@@ -1,5 +1,13 @@
-var CACHE_STATIC_NAME = 'static-v2';
-var CACHE_DYNAMIC_NAME = 'dynamic-v2';
+var CACHE_STATIC_NAME = 'static-v1';
+var CACHE_DYNAMIC_NAME = 'dynamic-v1';
+
+var deferredPrompt;
+self.addEventListener('beforeinstallprompt', function(event) {
+  console.log('beforeinstallprompt fired');
+  event.preventDefault();
+  deferredPrompt = event;
+  return false;
+});
 
 self.addEventListener('install', function(event) {
   console.log('[Service Worker] Installing Service Worker ...', event);
